@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+<<<<<<< HEAD
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { TransfersHistoriqueComponent } from './components/transfers-historique/transfers-historique.component';
@@ -29,4 +30,15 @@ export const routes: Routes = [
             },
         ]
     }
+=======
+import { authGuard } from './auth/auth.guard';
+import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
+
+export const routes: Routes = [
+    { path: 'login/callback', component: OktaCallbackComponent , canActivate: [authGuard]},
+    {
+        path: '',
+        loadChildren: () => import('./components/routes').then((m) => m.APP_ROUTES),canActivate: [OktaAuthGuard]
+    },
+>>>>>>> 120ca0a2361b4fc1b2c2f66e1aec58a6e7cbd051
 ];
