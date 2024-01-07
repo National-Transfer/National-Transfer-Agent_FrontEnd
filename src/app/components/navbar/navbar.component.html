@@ -1,0 +1,52 @@
+<div class="sticky-top">
+    <nav class="bottom-navbar">
+        <div class="logo"><a href="#">Logo</a></div>
+        <div class="container  nav-container">
+            <ul class="nav page-navigation">
+                <li class="nav-item">
+                    <a   class="nav-link">
+                        <fa-icon  class="menu-icon" [icon]="faHouse"></fa-icon>
+                        <span class="menu-title" (click)="home()">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link">
+                        <fa-icon  class="menu-icon" [icon]="faUserGroup"></fa-icon>
+                        <span class="menu-title" (click)="clients()">Clients</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link">
+                        <fa-icon  class="menu-icon" [icon]="faUserGroup"></fa-icon>
+                        <span class="menu-title" (click)="prospects()">Prospects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link">
+                        <fa-icon  class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
+                        <span class="menu-title" (click)="sendMoney()">Send Money</span>
+                    </a>
+                </li>
+                <li class="nav-item"  >
+                    <a  class="nav-link" >
+                        <fa-icon  class="menu-icon" [icon]="faLandmark"></fa-icon>
+                        <span class="menu-title" (click)="transfersRecents()">Transfers</span>
+                    </a>
+                </li>
+                <li class="nav-item"  >
+                    <a  class="nav-link" >
+                        <fa-icon  class="menu-icon" [icon]="faUser"></fa-icon>
+                        <span class="menu-title" (click)="profile()">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a   class="nav-link">
+                        <fa-icon  class="menu-icon" [icon]="faRightFromBracket"></fa-icon>
+                        <span class="menu-title">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>

@@ -1,0 +1,189 @@
+<div class="container demands-container" id="main-container">
+    <h1 align="center" class="mb-5">
+        Our Prospects
+    </h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="">
+                <div class="table-responsive">
+                    <table class="table project-list-table table-nowrap align-middle table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col"  class="ps-4">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Identity Type</th>
+                                <th scope="col">Country Of Issue</th>
+                                <th scope="col">Identity Number</th>
+                                <th scope="col">Date Of Birth</th>
+                                <th scope="col">Profession</th>
+                                <th scope="col">Nationality</th>
+                                <th scope="col">Country Of Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">View</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Approve</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (prospect of prospects; track $index) {
+                                <tr>
+                                    <th scope="row"  class="ps-4">{{prospect.id}}</th>
+                                    <td>{{prospect.firstName}} </td>
+                                    <td>{{prospect.identityType}}</td>
+                                    <td>{{prospect.countryOfIssue}}</td>
+                                    <td>{{prospect.identityNumber}}</td>
+                                    <td>{{prospect.dateOfBirth}}</td>
+                                    <td>{{prospect.profession}}</td>
+                                    <td>{{prospect.nationality}}</td>
+                                    <td>{{prospect.countryOfAddress}}</td>
+                                    <td>{{prospect.city}}</td>
+                                    <td>{{prospect.phoneNumber}}</td>
+                                    <td>{{prospect.email}}</td>
+                                    <td class="item">
+                                        <a (click)="onOpenModal(prospect, 'view')" class="px-2 text-success">
+                                            <fa-icon class="update" [icon]="faEye" data-bs-toggle="modal" data-bs-target="#viewModal"></fa-icon>
+                                        </a>
+                                    </td>
+                                    <td class="item">
+                                        <a (click)="onOpenModal(prospect, 'delete')" class="px-2 text-success">
+                                            <fa-icon class="update" [icon]="faTrash" data-bs-toggle="modal" data-bs-target="#deleteModal"></fa-icon>
+                                        </a>
+                                    </td>
+                                    <td class="item">
+                                        <a (click)="onOpenModal(prospect, 'approve')" class="px-2 text-success">
+                                            <fa-icon class="update" [icon]="faSquareCheck" data-bs-toggle="modal" data-bs-target="#approveModal"></fa-icon>
+                                        </a>
+                                    </td>
+                                </tr>    
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Approve Modal -->
+    <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-light" style="border-radius:10px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Approve Prospect</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You are about to convert <strong>{{approveProspect?.firstName}}</strong> into a client
+                    <br>
+                    Are you sure ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success"
+                        data-bs-dismiss="modal">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- view Modal -->
+    <div class="modal fade" id="viewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg bg-light " style="border-radius:10px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Prospect Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class=" container ">
+                        <div class="row m-1 g-3">
+                            <div class="col">
+                               <span>First Name</span><br>
+                                    {{editProspect?.firstName}}
+                            </div>
+                            <div class="col">
+                                <span>Identity Type</span><br>
+                                {{editProspect?.identityType}}
+                            </div>
+                        </div>
+                        <div class="row m-1 g-3">
+                            <div class="col">
+                               <span>Country Of Issue</span><br>
+                               {{editProspect?.countryOfIssue}}
+                            </div>
+                            <div class="col">
+                               <span>Identity Number</span><br>
+                               {{editProspect?.identityNumber}}
+                            </div>
+                        </div>
+                        <div class="row m-1 g-3">
+                            <div class="col">
+                                <span>Date Of Birth</span><br>
+                                {{editProspect?.dateOfBirth}}
+                            </div>
+                            <div class="col">
+                               <span>Profession</span><br>
+                               {{editProspect?.profession}}
+                            </div>
+                        </div>
+                        <div class="row m-1 g-3">
+                            <div class="col">
+                               <span>Nationality</span><br>
+                               {{editProspect?.nationality}}
+                            </div>
+                            <div class="col">
+                               <span>Country Of Address</span><br>
+                               {{editProspect?.countryOfAddress}}
+                            </div>
+                        </div><div class="row m-1 g-3">
+                            <div class="col">
+                               <span>City</span><br>
+                               {{editProspect?.city}}
+                            </div>
+                            <div class="col">
+                               <span>Phone Number</span><br>
+                               {{editProspect?.phoneNumber}}
+                            </div>
+                        </div>
+                        <div class="row m-1 g-3">
+                            <div class="col">
+                               <span>Email</span><br>
+                               {{editProspect?.email}}
+                            </div>
+                        </div>
+                        <div class="row m-1 g-3">
+                            <div class="col-12">
+                                <button type="submit" class="col-4 btn btn-warning m-4"
+                                    data-bs-dismiss="modal">Confirm</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-light" style="border-radius:10px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Prospect</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You are about to delete Prospect <strong>{{deleteProspect?.firstName}}</strong>
+                    <br>
+                    Are you sure ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" 
+                        data-bs-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
