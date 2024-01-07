@@ -1,7 +1,7 @@
 <div class="recent-transfers">
-    <h3 class="heading-large">Your recents transfers</h3>
+    <h3 class="heading-large">Recents transfers</h3>
     <blockquote class="block-quote quote-turquoise">
-        You can cancel your tranfers
+        You can cancel tranfers
     </blockquote>
     <div class="table-transfer">
         <div class="table" style="background-color: #0d646c; color: white">
@@ -33,18 +33,20 @@
             <div class="item">firstName lastName</div>
             <div class="item" style="font-weight:normal">email</div>
             <div class="item" style="font-weight:bold">date</div>
-            <div class="item1"><a >
-                <fa-icon id="delete"
-                    [icon]="faTrash"></fa-icon>
-            </a></div>
-            <div class="item1"><a >
-                <fa-icon id="delete"
-                    [icon]="faTrash"></fa-icon>
-            </a></div>
+            <div class="item1">
+                <a  data-bs-toggle="modal" data-bs-target="#extourneModal">
+                    <fa-icon id="extourne" [icon]="faBan"></fa-icon>
+                </a>
+            </div>
+            <div class="item1">
+                <a  data-bs-toggle="modal" data-bs-target="#unblockModal">
+                    <fa-icon id="unblock" [icon]="faLockOpen"></fa-icon>
+                </a>
+            </div>
             
         </div>
     </div>
-    <h3 class="heading-large">Your Validated Transfers</h3>
+    <h3 class="heading-large">Validated Transfers</h3>
     <blockquote class="block-quote quote-turquoise">
         Those are you previews transfers
     </blockquote>
@@ -74,5 +76,51 @@
             <div class="item" style="font-weight:bold">date</div>            
         </div>
        
+    </div>
+</div>
+
+<!-- Extourner  -->
+<div class="modal fade" id="extourneModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog bg-light" style="border-radius:10px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Extourne Transfer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You are about to extourne this transfer
+                <br>
+                Are you sure ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"
+                    (click)="extourne(selectedTransfer)"
+                    data-bs-dismiss="modal">Extourne</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Unblock Modal -->
+<div class="modal fade" id="unblockModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog bg-light" style="border-radius:10px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Approve Prospect</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                You are about to unblock this transfer 
+                <br>
+                Are you sure ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success"
+                    (click)="unblock(selectedTransfer)"
+                    data-bs-dismiss="modal">Unblock</button>
+            </div>
+        </div>
     </div>
 </div>

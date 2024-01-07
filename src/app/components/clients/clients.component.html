@@ -1,295 +1,291 @@
-<div class="container subcontainer" id="main-container">
-    <h1 align="center" class="text">
-        Our Clients
-    </h1>
+<div class="clients">
+    <div class="container subcontainer" id="main-container">
+        <h1 align="center" class="text">
+            Our Clients
+        </h1>
 
-   <div class="header">
-        <div>
-            <button type="button" class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addClient">
-                + Add Client
-            </button>
+    <div class="header">
+            <div>
+                <button type="button" class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addClient">
+                    + Add Client
+                </button>
+            </div>
+
+            <form class="d-flex">
+                <input #myInput class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-add" type="submit">
+                Search
+                </button>
+            </form>
         </div>
-
-        <form class="d-flex">
-            <input #myInput class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-add" type="submit">
-               Search
-            </button>
-        </form>
-    </div>
-    <div class="table-clients table-responsive">
-        <table class="table table-striped  table-hover project-list-table table-nowrap table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col"  class="ps-4">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Identity Type</th>
-                    <th scope="col">Country Of Issue</th>
-                    <th scope="col">Identity Number</th>
-                    <th scope="col">Date Of Birth</th>
-                    <th scope="col">Profession</th>
-                    <th scope="col">Nationality</th>
-                    <th scope="col">Country Of Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Email</th>
-                    <th scope="col" class="item">Update</th>
-                    <th scope="col" class="item">Delete</th>
-
-                </tr>
-            </thead>
-            <tbody >
-                @for (client of clients; track client.id) {
+        <div class="table-clients table-responsive">
+            <table class="table table-striped  table-hover project-list-table table-nowrap table-borderless">
+                <thead>
                     <tr>
-                        <th scope="row"  class="ps-4">{{client.id}}</th>
-                        <td>{{client.firstName}} </td>
-                        <td>{{client.identityType}}</td>
-                        <td>{{client.countryOfIssue}}</td>
-                        <td>{{client.identityNumber}}</td>
-                        <td>{{client.dateOfBirth}}</td>
-                        <td>{{client.profession}}</td>
-                        <td>{{client.nationality}}</td>
-                        <td>{{client.countryOfAddress}}</td>
-                        <td>{{client.city}}</td>
-                        <td>{{client.phoneNumber}}</td>
-                        <td>{{client.email}}</td>
-                        <td class="item">
-                            <a  class="px-2 text-success">
-                                <fa-icon class="update" [icon]="faPenToSquare" data-bs-toggle="modal" data-bs-target="#updateModal"></fa-icon>
-                            </a>
-                        </td>
-                        <td class="item">
-                            <a (click)="onOpenModal(client)" class="px-2 text-danger">
-                                <fa-icon class="delete" [icon]="faTrash" ></fa-icon>
-                            </a>
-                        </td>
+                        <th scope="col"  class="ps-4">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Identity Number</th>
+                        <th scope="col">Date Of Birth</th>
+                        <th scope="col">Profession</th>
+                        <th scope="col">Nationality</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" class="item">Update</th>
+                        <th scope="col" class="item">Delete</th>
+
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody >
+                    @for (client of clients; track client.id) {
+                        <tr>
+                            <th scope="row"  class="ps-4">{{client.id}}</th>
+                            <td>{{client.firstName}} </td>
+                            <td>{{client.identityNumber}}</td>
+                            <td>{{client.dateOfBirth}}</td>
+                            <td>{{client.profession}}</td>
+                            <td>{{client.nationality}}</td>
+                            <td>{{client.city}}</td>
+                            <td>{{client.phoneNumber}}</td>
+                            <td>{{client.email}}</td>
+                            <td class="item">
+                                <a  class="px-2 text-success">
+                                    <fa-icon class="update" [icon]="faPenToSquare" data-bs-toggle="modal" data-bs-target="#updateModal"></fa-icon>
+                                </a>
+                            </td>
+                            <td class="item">
+                                <a (click)="onOpenModal(client)" class="px-2 text-danger">
+                                    <fa-icon class="delete" [icon]="faTrash" ></fa-icon>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
-    </div>
-    <!-- add form modal -->
-    <div class="modal fade" id="addClient" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- <h5 class="modal-title">Add a new Client</h5> -->
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class=" container mt-3">
-                        <form #addForm="ngForm">
-                            <div class="card-header">
-                                <h3 class="text-dark">Add a new Client</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="First Name" class="form-control" ngModel
-                                            name="firstName" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Identity Type" class="form-control" ngModel
-                                            name="identityType" required>
-
-                                    </div>
+        </div>
+        <!-- add form modal -->
+        <div class="modal fade" id="addClient" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <h5 class="modal-title">Add a new Client</h5> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" container mt-3">
+                            <form #addForm="ngForm">
+                                <div class="card-header">
+                                    <h3 class="text-dark">Add a new Client</h3>
                                 </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Country Of Issue" class="form-control" ngModel
-                                            name="CountryOfIssue" required>
+                                <div class="card-body">
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="First Name" class="form-control" ngModel
+                                                name="firstName" required>
 
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Identity Number" class="form-control" ngModel 
-                                        name="identityNumber" required>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Identity Type" class="form-control" ngModel
+                                                name="identityType" required>
 
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Date Of Birth" class="form-control" ngModel
-                                            name="dateOfBirth" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Profession" class="form-control" ngModel 
-                                        name="profession" required>
-
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Nationality" class="form-control" ngModel
-                                            name="nationality" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Country Of Address" class="form-control" ngModel 
-                                        name="countryOfAddress" required>
-
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <div class="col input-group flex-nowrap">
-                                            <span class="input-group-text" id="addon-wrapping">+212</span>
-                                            <input type="text" placeholder="Phone Number" class="form-control" ngModel
-                                                name="phoneNumber" required>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="email" placeholder="City" class="form-control" ngModel
-                                            name="city" required>
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Email" class="form-control" ngModel
-                                            name="email" required>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Country Of Issue" class="form-control" ngModel
+                                                name="CountryOfIssue" required>
 
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Identity Number" class="form-control" ngModel 
+                                            name="identityNumber" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Date Of Birth" class="form-control" ngModel
+                                                name="dateOfBirth" required>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Profession" class="form-control" ngModel 
+                                            name="profession" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Nationality" class="form-control" ngModel
+                                                name="nationality" required>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Country Of Address" class="form-control" ngModel 
+                                            name="countryOfAddress" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <div class="col input-group flex-nowrap">
+                                                <span class="input-group-text" id="addon-wrapping">+212</span>
+                                                <input type="text" placeholder="Phone Number" class="form-control" ngModel
+                                                    name="phoneNumber" required>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <input type="email" placeholder="City" class="form-control" ngModel
+                                                name="city" required>
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Email" class="form-control" ngModel
+                                                name="email" required>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row m-1 g-3">
-                                    <div class="col-12">
-                                        <button type="submit" class="col-4 btn btn-primary m-4"
-                                            (click)="add(addForm)"
-                                            data-bs-dismiss="modal">Add</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="card-footer">
+                                    <div class="row m-1 g-3">
+                                        <div class="col-12">
+                                            <button type="submit" class="col-4 btn btn-primary m-4"
+                                                (click)="add(addForm)"
+                                                data-bs-dismiss="modal">Add</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- update form modal -->
-    <div class="modal fade" id="updateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg bg-light " style="border-radius:10px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- <h5 class="modal-title">Upate Client</h5> -->
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class=" container mt-3">
-                        <form #updateForm="ngForm">
-                            <div class="card-header">
-                                <h3 class="text-dark">Update payment account</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="First Name" class="form-control" ngModel
-                                            name="firstName" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Identity Type" class="form-control" ngModel
-                                            name="identityType" required>
-
-                                    </div>
+        <!-- update form modal -->
+        <div class="modal fade" id="updateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg bg-light " style="border-radius:10px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <h5 class="modal-title">Upate Client</h5> -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class=" container mt-3">
+                            <form #updateForm="ngForm">
+                                <div class="card-header">
+                                    <h3 class="text-dark">Update payment account</h3>
                                 </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Country Of Issue" class="form-control" ngModel
-                                            name="CountryOfIssue" required>
+                                <div class="card-body">
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="First Name" class="form-control" ngModel
+                                                name="firstName" required>
 
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Identity Number" class="form-control" ngModel 
-                                        name="identityNumber" required>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Identity Type" class="form-control" ngModel
+                                                name="identityType" required>
 
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Date Of Birth" class="form-control" ngModel
-                                            name="dateOfBirth" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Profession" class="form-control" ngModel 
-                                        name="profession" required>
-
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Nationality" class="form-control" ngModel
-                                            name="nationality" required>
-
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" placeholder="Country Of Address" class="form-control" ngModel 
-                                        name="countryOfAddress" required>
-
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <div class="col input-group flex-nowrap">
-                                            <span class="input-group-text" id="addon-wrapping">+212</span>
-                                            <input type="text" placeholder="Phone Number" class="form-control" ngModel
-                                                name="phoneNumber" required>
                                         </div>
                                     </div>
-                                    <div class="col">
-                                        <input type="email" placeholder="City" class="form-control" ngModel
-                                            name="city" required>
-                                    </div>
-                                </div>
-                                <div class="row m-1 g-3">
-                                    <div class="col">
-                                        <input type="text" placeholder="Email" class="form-control" ngModel
-                                            name="email" required>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Country Of Issue" class="form-control" ngModel
+                                                name="CountryOfIssue" required>
 
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Identity Number" class="form-control" ngModel 
+                                            name="identityNumber" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Date Of Birth" class="form-control" ngModel
+                                                name="dateOfBirth" required>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Profession" class="form-control" ngModel 
+                                            name="profession" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Nationality" class="form-control" ngModel
+                                                name="nationality" required>
+
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" placeholder="Country Of Address" class="form-control" ngModel 
+                                            name="countryOfAddress" required>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <div class="col input-group flex-nowrap">
+                                                <span class="input-group-text" id="addon-wrapping">+212</span>
+                                                <input type="text" placeholder="Phone Number" class="form-control" ngModel
+                                                    name="phoneNumber" required>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <input type="email" placeholder="City" class="form-control" ngModel
+                                                name="city" required>
+                                        </div>
+                                    </div>
+                                    <div class="row m-1 g-3">
+                                        <div class="col">
+                                            <input type="text" placeholder="Email" class="form-control" ngModel
+                                                name="email" required>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="row m-1 g-3">
-                                    <div class="col-12">
-                                        <button type="submit" class="col-4 btn btn-warning m-4"
-                                        (click)="update(updateForm)"
-                                            data-bs-dismiss="modal">Update</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="card-footer">
+                                    <div class="row m-1 g-3">
+                                        <div class="col-12">
+                                            <button type="submit" class="col-4 btn btn-warning m-4"
+                                            (click)="update(updateForm)"
+                                                data-bs-dismiss="modal">Update</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Delete Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog bg-light" style="border-radius:10px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Agent</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    You are about to delete Client <strong>{{deleteClient?.firstName}}</strong>
-                    <br>
-                    Are you sure ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger"
-                        (click)="delete(deleteClient)"
-                        data-bs-dismiss="modal">Delete</button>
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog bg-light" style="border-radius:10px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Agent</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        You are about to delete Client <strong>{{deleteClient?.firstName}}</strong>
+                        <br>
+                        Are you sure ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger"
+                            (click)="delete(deleteClient)"
+                            data-bs-dismiss="modal">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRightFromBracket, faArrowUpWideShort, faCaretDown, faHouse, faLandmark, faMoneyBillTransfer, faNoteSticky, faRightFromBracket, faScroll, faTableList, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket, faHouse, faLandmark, faMoneyBillTransfer, faRightFromBracket, faUser, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { OKTA_AUTH } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -24,9 +25,10 @@ export class NavbarComponent {
 
   router = inject(Router);
   route = inject(ActivatedRoute);
+  oktaAuth = inject(OKTA_AUTH);
 
   home() {
-    this.router.navigate(['home'], { relativeTo: this.route });
+    this.router.navigate([''], { relativeTo: this.route });
   }
 
   clients() {
@@ -38,7 +40,7 @@ export class NavbarComponent {
   }
 
   transfersRecents() {
-    this.router.navigate(['transfer-historique'], { relativeTo: this.route });
+    this.router.navigate(['transfers-history'], { relativeTo: this.route });
   }
 
   sendMoney() {
@@ -47,5 +49,10 @@ export class NavbarComponent {
 
   profile() {
     this.router.navigate(['profile'], { relativeTo: this.route });
+  }
+
+  logout() {
+    this.oktaAuth.signOut();
+    this.router.navigate(['']);
   }
 }

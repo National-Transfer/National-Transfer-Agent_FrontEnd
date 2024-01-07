@@ -3,12 +3,6 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-<<<<<<< HEAD
-import { provideHttpClient, withFetch } from '@angular/common/http';
-
-export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch()), provideHttpClient()]
-=======
 import { provideHttpClient, withInterceptors, withFetch } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { authInterceptor } from './auth/auth.interceptor';
@@ -28,5 +22,4 @@ const oktaAuth = new OktaAuth({
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(),provideHttpClient(withInterceptors([authInterceptor])),provideAnimations(),
   provideHttpClient(withFetch()), provideHttpClient(), importProvidersFrom(OktaAuthModule.forRoot({ oktaAuth })),]
->>>>>>> 120ca0a2361b4fc1b2c2f66e1aec58a6e7cbd051
 };

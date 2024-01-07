@@ -6,7 +6,7 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.26);
     box-sizing: border-box;
     margin: 80px auto ;
-    border-left: 15px solid #0c6f78;
+    border-left: 15px solid #515f73;
 }
 .infos-body{
     padding: 20px
@@ -20,7 +20,7 @@ h1{
     margin: 0;
     padding-bottom: 6px;
     margin-bottom: 10px;
-    background-color: #499da5;
+    background-color: #515f73;
     border-radius: 5px;
     padding: 10px;
 }

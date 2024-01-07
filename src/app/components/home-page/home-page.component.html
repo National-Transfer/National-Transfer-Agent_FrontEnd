@@ -1,79 +1,77 @@
 <div class="single-slide">
-    <div class="row">
+  <div class="row">
+    <div class="slide-content">
       <div class="col">
-        <div class="firstPart">
-          <h1><span>Welcome, Bank Agent!</span><span class="span-turquoise"> Manage your clients with ease.</span></h1>
-          <div class="inner text-size-medium">
-            Utilize our platform to efficiently handle client accounts, transactions, and beneficiary management.
+          <div class="firstPart">
+              <h1><span>Welcome, Bank Agent!</span><span class="span-turquoise"> Manage your clients with ease.</span></h1>
+              <div class="inner text-size-medium">
+                Utilize our platform to efficiently handle client accounts, transactions, and beneficiary management.
+              </div>
           </div>
-        </div>
-        <div class="subtext-row">
-          <div class="subtext-container">
-            <img class="check" src="../../assets/images/check.png" alt="">
-            Comprehensive Client Management
+          <div class="subtext-row">
+              <div class="subtext-container">
+                  <img class="check" src="../../../assets/images/check.png" alt="">
+                  Comprehensive Client Management
+              </div>
+              <div class="subtext-container">
+                  <img class="check" src="../../../assets/images/check.png" alt="">
+                  Transaction Monitoring
+              </div>
+              <div class="subtext-container">
+                  <img class="check" src="../../assets/images/check.png" alt="">
+                  Secure Operation
+              </div>
+              <div  class="subtext-container">
+                  <img class="check" src="../../assets/images/check.png" alt="">
+                  Availability 7 days a week
+              </div>
           </div>
-          <div class="subtext-container">
-            <img class="check" src="../../assets/images/check.png" alt="">
-            Transaction Monitoring
-          </div>
-          <div class="subtext-container">
-            <img class="check" src="../../assets/images/check.png" alt="">
-            Secure Operations
-          </div>
-          <div class="subtext-container">
-            <img class="check" src="../../assets/images/check.png" alt="">
-            Accessible 24/7
-          </div>
-        </div>
       </div>
-      <div class="col bg-img">
-      </div>
+  </div>
+</div>
+</div>
+
+<div class="container" style="width: 80%;">
+
+  <div class="cards">
+    <div >
+      <a class="card-single" (click)="clients()">
+        <div class="card-header">
+          <a id="a">Today's Clients</a>
+          <span>5000</span>
+        </div>
+        <div>
+          <fa-icon class="icon" [icon]="faUsers"></fa-icon>
+        </div>
+      </a>
+    </div>
+
+    <div >
+      <a class="card-single" (click)="prospects()">
+        <div class="card-header">
+          <a id="a">Today's Prospects</a>
+          <span>5000</span>
+        </div>
+        <div>
+          <fa-icon class="icon" [icon]="faUsers"></fa-icon>
+        </div>
+      </a>
+    </div>
+
+    <div >
+      <a class="card-single" (click)="transfers()">
+        <div class="card-header">
+          <a id="a">New Transfers</a>
+          <span>90</span>
+        </div>
+        <div>
+          <fa-icon class="icon" [icon]="faArrowRightArrowLeft"></fa-icon>
+        </div>
+      </a>
     </div>
   </div>
-  
-  <div class="services">
-    <div class="heading-large">
-      <h2>Agent Services</h2>
-    </div>
-    
-    <div class="services-grid">
-      <div class="service-content">
-        <div class="content-title">
-          <h3>Client Management</h3>
-        </div>
-        <blockquote class="block-quote quote-turquoise">
-          Efficiently manage client accounts, view details, and perform necessary actions.
-        </blockquote>
-        <div class="bottom-row">
-          <a href="#" class="button-secondary w-button">Manage Clients</a>
-        </div>
-      </div>
-      <div class="vide"></div>
-      <div class="vide"></div>
-      <div class="service-content">
-        <div class="content-title">
-          <h3>Transaction History</h3>
-        </div>
-        <blockquote class="block-quote quote-turquoise">
-          Monitor and analyze transaction history for better insights.
-        </blockquote>
-        <div class="bottom-row">
-          <a href="#" class="button-secondary w-button">View Transactions</a>
-        </div>
-      </div>
-      <div class="service-content">
-        <div class="content-title">
-          <h3>Beneficiary Management</h3>
-        </div>
-        <blockquote class="block-quote quote-turquoise">
-          Easily manage and update client beneficiaries.
-        </blockquote>
-        <div class="bottom-row">
-          <a href="#" class="button-secondary w-button">Manage Beneficiaries</a>
-        </div>
-      </div>
-      <div class="vide"></div>
-    </div>
-  </div>  
 
-  
+  <!-- <canvas baseChart [data]="datasets" [type]="'bar'"> </canvas> -->
+
+</div>
+
