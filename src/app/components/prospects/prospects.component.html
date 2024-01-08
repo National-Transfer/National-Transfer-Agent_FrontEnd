@@ -30,7 +30,7 @@
                                         <th scope="row"  class="ps-4">{{prospect.id}}</th>
                                         <td>{{prospect.firstName}} </td>
                                         <td>{{prospect.identityNumber}}</td>
-                                        <td>{{prospect.dateOfBirth}}</td>
+                                        <td>{{prospect.dateOfBirth.toString()!.split('T')[0]}}</td>
                                         <td>{{prospect.profession}}</td>
                                         <td>{{prospect.nationality}}</td>
                                         <td>{{prospect.city}}</td>
@@ -38,17 +38,17 @@
                                         <td>{{prospect.email}}</td>
                                         <td class="item">
                                             <a (click)="onOpenModal(prospect, 'view')" class="px-2 text-success">
-                                                <fa-icon class="update" [icon]="faEye" data-bs-toggle="modal" data-bs-target="#viewModal"></fa-icon>
+                                                <fa-icon class="update" [icon]="faEye" ></fa-icon>
                                             </a>
                                         </td>
                                         <td class="item">
                                             <a (click)="onOpenModal(prospect, 'delete')" class="px-2 text-success">
-                                                <fa-icon class="update" [icon]="faTrash" data-bs-toggle="modal" data-bs-target="#deleteModal"></fa-icon>
+                                                <fa-icon class="update" [icon]="faTrash"></fa-icon>
                                             </a>
                                         </td>
                                         <td class="item">
                                             <a (click)="onOpenModal(prospect, 'approve')" class="px-2 text-success">
-                                                <fa-icon class="update" [icon]="faSquareCheck" data-bs-toggle="modal" data-bs-target="#approveModal"></fa-icon>
+                                                <fa-icon class="update" [icon]="faSquareCheck" ></fa-icon>
                                             </a>
                                         </td>
                                     </tr>    
@@ -60,7 +60,7 @@
             </div>
         </div>
         <!-- Approve Modal -->
-        <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="approveModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog bg-light" style="border-radius:10px">
                 <div class="modal-content">
                     <div class="modal-header">

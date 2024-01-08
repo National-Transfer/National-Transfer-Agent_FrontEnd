@@ -4,6 +4,7 @@ import { faPenToSquare, faRotateLeft, faSquarePlus, faTrash } from '@fortawesome
 import { ClientService } from '../../services/client.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Client } from '../../interfaces/client';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-clients',
@@ -16,9 +17,7 @@ export class ClientsComponent implements OnInit{
 
  
   private clientService = inject(ClientService);
-
-  deleteClient!: Client;
-  clients: Client[] = [];
+  public dataSubject = new BehaviorSubject<Client[]>([]);
 
 
   faTrash = faTrash;
@@ -26,64 +25,102 @@ export class ClientsComponent implements OnInit{
   faSquarePlus = faSquarePlus;
   faRotateLeft = faRotateLeft;
 
-  ngOnInit(): void {
-    this.loadClients();
-  }
-
-  private loadClients() {
-    this.clientService.getAllClients$.subscribe(
-      (clients) => {
-        this.clients = clients;
-      },
-      (error) => console.error('Error fetching clients:', error)
-    );
-  }
+  clientsResponse !: Client[];
 
 
-  add(addForm: NgForm) {
-    const newClient: Client = addForm.value;
-    this.clientService.saveClient$(newClient).subscribe(
-      (client) => {
-        this.clients.push(client);
-        addForm.resetForm();
-      },
-      (error) => console.error('Error adding client:', error)
-    );
-  }
+  clientToEdit !: Client;
+  clientToDelete !: Client
   
-  update(updateForm : NgForm) {
-    const updatedClient: Client = updateForm.value;
-    this.clientService.updateClient$(updatedClient).subscribe(
-      (client) => {
-        const index = this.clients.findIndex(c => c.id === client.id);
-        if (index !== -1) {
-          this.clients[index] = client;
+  ngOnInit(): void {
+    this.clientService.getAllClients$.subscribe((response : Client[]) => {
+      this.dataSubject.next(response);
+
+      this.clientsResponse = response
+      this.clientsResponse = response.reverse();
+    })
+  }
+
+  addClient(addForm: NgForm) {
+    let client : Client = addForm.value;
+    client.title = client.title + " "+ client.firstName.split(' ')[0];
+
+    console.log(client);
+    
+    this.clientService.saveClient$(client).subscribe( (response : Client)=> {
+      this.dataSubject.next([response, ...this.dataSubject.value]);
+      this.clientsResponse = this.dataSubject.value;
+    });
+    addForm.reset();
+  }
+
+  deleteClient(client: Client): void {
+    console.log(client)
+    this.clientService.deleteClient$(client.id as string).subscribe(() => {
+
+      const updatedClients = this.dataSubject.value.filter(cl => cl.id !== client.id);
+
+      this.dataSubject.next(updatedClients);
+      this.clientsResponse = updatedClients;
+    })
+  }
+
+  updateClient(client: Client) {
+    this.clientService.updateClient$(client).subscribe(
+      (response : Client) => {
+        if (response) {
+          const updatedClient = response;
+          const updatedClients = this.dataSubject.value.map((a: Client) =>
+            a.id === updatedClient?.id ? { ...a, ...updatedClient } : a
+          );
+  
+          this.dataSubject.next(updatedClients);
+          this.clientsResponse = updatedClients;
+        } else {
+          console.error('Invalid response or missing client data.');
         }
       },
-      (error) => console.error('Error updating client:', error)
-    );
-  }
-  delete(client : Client) {
-    this.clientService.deleteClient$(client.id!).subscribe(
-      () => {
-        this.clients = this.clients.filter(c => c.id !== client.id);
-      },
-      (error) => console.error('Error deleting client:', error)
+      error => {
+        alert('An error has occured while trying to update client ' + error)
+      }
     );
   }
 
+  doSearch(value: string) {
+    console.log(`value=${value}`);
 
-  onOpenModal(client: any) {
+    this.clientService.filterClients$(value, this.dataSubject.value).subscribe((response : Client[]) =>{
+      this.clientsResponse = response;
+    })
+  }
+
+
+  onOpenModal(client: any, mode: string) {
 
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-bs-toggle', 'modal');
-    this.deleteClient = client;
-    button.setAttribute('data-bs-target', '#deleteModal');
+
+    if (mode === 'add') {
+      button.setAttribute('data-bs-target', '#AddModal');
+      console.log("add")
+    }
+    if (mode === 'view') {
+      this.clientToEdit = client;
+      button.setAttribute('data-bs-target', '#viewModal');
+    }
+    if (mode === 'edit') {
+      this.clientToEdit = client;
+      button.setAttribute('data-bs-target', '#updateModal');
+    }
+    if (mode === 'delete') {
+      this.clientToDelete = client;
+      button.setAttribute('data-bs-target', '#deleteModal');
+    }
     container?.appendChild(button);
     button.click();
   }
+
   
 }

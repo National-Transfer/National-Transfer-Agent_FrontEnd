@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{ 
+    font-family:  Arial, sans-serif;
+    /* color: #666; */
+    outline: none;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #f8f9fa !important;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+}

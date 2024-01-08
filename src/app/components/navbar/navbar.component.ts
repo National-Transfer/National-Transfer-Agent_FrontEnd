@@ -51,8 +51,12 @@ export class NavbarComponent {
     this.router.navigate(['profile'], { relativeTo: this.route });
   }
 
-  logout() {
-    this.oktaAuth.signOut();
-    this.router.navigate(['']);
+  serveTransfer(){
+    this.router.navigate(['serve-transfer'], { relativeTo: this.route });
+
+  }
+
+  async logout() {
+    await this.oktaAuth.signOut();
   }
 }

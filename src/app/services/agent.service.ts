@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Agent } from '../interfaces/agent';
+import { environment } from '../../environments/environment';
 
 
 const httpOptions = {
@@ -17,7 +18,7 @@ export class AgentService {
   
   private http: HttpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = 'http://client-service/api/clients';
+  private readonly apiUrl: string = environment.redirectUri +'/kyc-service/api/v1/clients';
 
   constructor() { }
 

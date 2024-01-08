@@ -1,42 +1,56 @@
-.infos{
-    padding: 30px;
-    width: 70%;
-    background: #FFFFFF;
-    border-radius: 6px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.26);
-    box-sizing: border-box;
-    margin: 80px auto ;
-    border-left: 15px solid #515f73;
-}
-.infos-body{
-    padding: 20px
-}
-
-h1{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #e6eced;
-    text-shadow: 0 0 6px rgba(0,0,0,0.3);
-    font-size: 24pt;
+/* body {
     margin: 0;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-    background-color: #515f73;
-    border-radius: 5px;
-    padding: 10px;
+    padding-top: 40px;
+    color: #008995;
+    background: #f5f6fa;
+    position: relative;
+    height: 100%;
+} */
+.profile-container{
+    max-width: 900px;
+    font-size: 14px;
+    margin-top : 7rem;
+    height: 500px;
+
+}
+.profile-section{
+    height: 100%;
 }
 
-.labelInfo {
-    margin-top: 0;
-    color: #0b5d64;
-    font-size: 20px;
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
 }
-.valeurInfo, .valeurInfo>b {
-    margin-bottom: 10px;
-    margin-top: 2px;
-    font-size: 20px;
-    font-weight: 500;
+
+
+.card {
+    background: #ffffff;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
+
+p{
+    color: #9fa8b9;
+}
+
+.card-body{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
     align-items: center;
-    letter-spacing: 1px;
+
+}
+img{
+    width: 100%;
+    height: 1005;
+}
+.user-avatar {
+
+    width: fit-content;
+}
+.section-title{
+    color: #008995;
 }

@@ -1,8 +1,8 @@
 export interface Account {
-    accountCod: string;
-    balance: BigInteger;
-    annualAmountTransfer: BigInteger;
-    createdAt: Date;
-    ownerId: string;
-    accountType: string;
+    accountCode?: string;
+    balance:number ;
+    ownerId:string;
+    annualAmountTransfer : number;
+    createdAt  : Date ;
+    accountType : string;
 }

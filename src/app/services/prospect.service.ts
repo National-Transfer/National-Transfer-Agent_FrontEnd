@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, tap, catchError, of } from 'rxjs';
 import { Prospect } from '../interfaces/prospect';
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ export class ProspectService {
 
   private http: HttpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = 'http://client-service/api/prospects';
+  private readonly apiUrl: string = environment.redirectUri +'/kyc-service/api/v1/prospects';
 
   constructor() { }
 
@@ -58,7 +59,7 @@ export class ProspectService {
       );
 
       convertToClient$ = (prospectId: string) => <Observable<any>>
-      this.http.post<any>(`${this.apiUrl}/${prospectId}`, httpOptions)
+      this.http.post<any>(`${this.apiUrl}/convert/${prospectId}`, httpOptions)
         .pipe(
           tap(console.log),
           catchError(() => {

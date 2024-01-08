@@ -6,6 +6,7 @@ import { ProspectsComponent } from "./prospects/prospects.component";
 import { TransfersHistoriqueComponent } from "./transfers-historique/transfers-historique.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { EmissionTransferComponent } from "./emission-transfer/emission-transfer.component";
+import { ServeTransferComponent } from "./serve-transfer/serve-transfer.component";
 
 
 
@@ -30,6 +31,9 @@ export const APP_ROUTES: Route[] = [
             },
             {
                 path: 'profile', component: ProfileComponent
+            },
+            {
+                path : 'serve-transfer', component: ServeTransferComponent
             }
         ]
     }

@@ -8,6 +8,8 @@ export interface Client {
     countryOfIssue :string;
     identityNumber :string;
     dateOfBirth :Date;
+    address :string;
+    identityValidity: Date;
     profession : string;
     nationality : string;
     countryOfAddress :string;
