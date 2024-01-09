@@ -6,7 +6,8 @@ import { ProspectsComponent } from "./prospects/prospects.component";
 import { TransfersHistoriqueComponent } from "./transfers-historique/transfers-historique.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { EmissionTransferComponent } from "./emission-transfer/emission-transfer.component";
-import { ServeTransferComponent } from "./serve-transfer/serve-transfer.component";
+import { ServeTransferComponent } from "./serve-transfer-cash/serve-transfer-cash.component";
+import { ServeTransferWalletComponent } from "./serve-transfer-wallet/serve-transfer-wallet.component";
 
 
 
@@ -33,7 +34,10 @@ export const APP_ROUTES: Route[] = [
                 path: 'profile', component: ProfileComponent
             },
             {
-                path : 'serve-transfer', component: ServeTransferComponent
+                path : 'serve-transfer-cash', component: ServeTransferComponent
+            },
+            {
+                path : 'serve-transfer-wallet', component: ServeTransferWalletComponent
             }
         ]
     }

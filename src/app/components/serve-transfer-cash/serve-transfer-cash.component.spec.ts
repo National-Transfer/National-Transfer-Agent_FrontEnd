@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServeTransferComponent } from './serve-transfer.component';
+import { ServeTransferComponent } from './serve-transfer-cash.component';
 
 describe('ServeTransferComponent', () => {
   let component: ServeTransferComponent;

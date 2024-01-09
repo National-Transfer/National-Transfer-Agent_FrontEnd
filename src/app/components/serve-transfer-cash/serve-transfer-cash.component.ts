@@ -2,13 +2,16 @@ import { Component, ElementRef, inject } from '@angular/core';
 import { TransferService } from '../../services/transfers.service';
 import { Transfer } from '../../interfaces/transfer';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Benificiary } from '../../interfaces/Benificiary';
+import { BenificiaryService } from '../../services/benificiary.service';
+import { ServeTransferRequest } from '../../interfaces/serveTransferRequest';
 
 @Component({
-  selector: 'app-serve-transfer',
+  selector: 'app-serve-transfer-cash',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './serve-transfer.component.html',
-  styleUrl: './serve-transfer.component.css'
+  templateUrl: './serve-transfer-cash.component.html',
+  styleUrl: './serve-transfer-cash.component.css'
 })
 export class ServeTransferComponent {
 
@@ -16,7 +19,12 @@ export class ServeTransferComponent {
 
   private transferService = inject(TransferService);
 
+  private benificiaryService = inject(BenificiaryService);
+
   transferToServe !: Transfer;
+
+  benificiary !: Benificiary;
+
 
   ngOnInit(): void {
     this.setupFormNavigation();
@@ -78,21 +86,37 @@ export class ServeTransferComponent {
     });
   }
 
-  checkTransferToServe(reference : NgForm){
-    console.log(reference.value);
-    
-    this.transferService.checkTransferToServe$(reference.value).subscribe(response =>{
-        if(response){
-          this.transferToServe = response;
+  checkTransferToServe(reference: NgForm) {
 
-        }else{
-          alert('Incorrect reference')
-        }
+    this.transferService.checkTransferToServe$(reference.value.reference).subscribe(response => {
+      if (response) {
+        this.transferToServe = response;
+
+      } else {
+        alert('Incorrect reference')
+      }
     });
-
-    console.log(this.transferToServe);
-
   }
 
-  
+  getBeneficiary() {
+    this.benificiaryService.getBeneficiary$(this.transferToServe.recipientId).subscribe(response => {
+      this.benificiary = response;
+    })
+  }
+
+  serveTransferCash() {
+    console.log(this.benificiary.client.phoneNumber);
+    
+    const serveTransferRequest: ServeTransferRequest = {
+      reference: this.transferToServe.reference as string,
+      phone: this.benificiary.client.phoneNumber,
+      clientId: this.transferToServe.clientId
+    };
+
+    this.transferService.serveTransferCash$(serveTransferRequest).subscribe(response => {
+        console.log(response);
+
+    });
+  }
+
 }

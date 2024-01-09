@@ -179,3 +179,13 @@ ul.form-stepper li a .form-stepper-circle {
   .section-title{
     color: #008995;
 }
+
+.button {
+    outline: none;
+    background: #3d4b5f;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+  }

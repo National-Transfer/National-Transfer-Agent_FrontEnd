@@ -25,7 +25,7 @@ export class TransferService {
 
   private http: HttpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = environment.redirectUri + 'transfer-service/api/v1/transfer';
+  private readonly apiUrl: string = environment.redirectUri + '/transfer-service/api/v1/transfer';
 
   constructor() { }
 
@@ -115,7 +115,7 @@ export class TransferService {
 
 
   validateTransferToWallet$ = (validateTransferRequest: ValidateTransferRequest) => <Observable<Transfer>>
-    this.http.post<Transfer>(`${this.apiUrl}/serveTransferToWallet`, validateTransferRequest, httpOptions)
+    this.http.post<Transfer>(`${this.apiUrl}/validateTransferToWallet`, validateTransferRequest, httpOptions)
       .pipe(
         tap(console.log),
         catchError(() => {

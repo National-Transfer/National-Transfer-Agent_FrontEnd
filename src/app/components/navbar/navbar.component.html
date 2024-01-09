@@ -27,11 +27,16 @@
                         <span class="menu-title" >Issue Transfer</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a (click)="serveTransfer()" class="nav-link">
+                <li class="nav-item dropdown">
+                    <a class="nav-link">
                         <fa-icon  class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
                         <span class="menu-title" >Serve Transfer</span>
                     </a>
+                    <div class="dropdown-content">
+                        <a (click)="serveTransferCash()">Cash</a>
+                        <a (click)="serveTransferWallet()">On wallet</a>
+                      </div>
+
                 </li>
                 <li class="nav-item"  >
                     <a (click)="transfersRecents()" class="nav-link" >

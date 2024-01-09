@@ -103,29 +103,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h5 class="mt-3 mb-2 section-title"><strong>Benificiary</strong></h5>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="Street">Name</label>
-                                        <p>salespoint</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <p>address</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="createdAt">Created At</label>
-                                        <p>date de creation</p>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -138,16 +115,37 @@
                 <div class="mt-3">
                     <button class="button btn-navigate-form-step m" type="button" step_number="1">Prev</button>
                     <button class="button btn-navigate-form-step" type="button" step_number="3"
-                        [disabled]='transferToServe'>Next</button>
+                        (click)="getBeneficiary ()" >Next</button>
                 </div>
 
             </section>
             <!-- Step 3 Content, default hidden on page load. -->
             <section id="step-3" class="form-step d-none">
-                <h2 class="font-normal">Personal Details</h2>
                 <!-- Step 3 input fields -->
                 <div class="mt-3">
-                    Step 3 input fields goes here..
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h5 class="mt-3 mb-2 section-title"><strong>Benificiary</strong></h5>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="Street">First Name</label>
+                                <p>{{benificiary?.firstName}}</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="Street">Last Name</label>
+                                <p>{{benificiary?.lastName}}</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label for="address">phone Number</label>
+                                <p>{{benificiary?.phoneNumber}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-3">
                     <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
@@ -158,14 +156,13 @@
             <!-- Step 4 Content, default hidden on page load. -->
 
             <section id="step-4" class="form-step d-none">
-                <h2 class="font-normal">Personal Details</h2>
                 <!-- Step 4 input fields -->
                 <div class="mt-3">
-                    Step 4 input fields goes here..
+                    Valider Le transfer
                 </div>
                 <div class="mt-3">
                     <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
-                    <button class="button submit-btn" type="submit">Save</button>
+                    <button class="button submit-btn" type="submit" (click) ="serveTransferCash()">Save</button>
                 </div>
             </section>
         </form>

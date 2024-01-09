@@ -31,6 +31,15 @@ export class ClientService {
         })
       );
 
+    getClientByCin$ =  (cinClient: string) => <Observable<any>>
+    this.http.get<any>(`${this.apiUrl}/${cinClient}`)
+      .pipe(
+        tap(console.log),
+        catchError(() => {
+          return of('error getting Client')
+        })
+      );
+
   saveClient$ = (client: Client) => <Observable<Client>>
     this.http.post<Client>(`${this.apiUrl}`, client, httpOptions)
       .pipe(

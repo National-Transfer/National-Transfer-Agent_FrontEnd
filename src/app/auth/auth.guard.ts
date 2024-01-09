@@ -18,7 +18,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   console.log('inside guard');
   
   roles$.subscribe((roles: string[]) => {
-    const isAdmin = roles.includes('ADMIN');
+    const isAdmin = roles.includes('AGENT');
     if (!isAdmin) {
       oktaAuth.signOut();
     }

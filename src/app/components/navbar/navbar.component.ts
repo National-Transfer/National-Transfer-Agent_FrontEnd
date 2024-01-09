@@ -51,8 +51,12 @@ export class NavbarComponent {
     this.router.navigate(['profile'], { relativeTo: this.route });
   }
 
-  serveTransfer(){
-    this.router.navigate(['serve-transfer'], { relativeTo: this.route });
+  serveTransferCash(){
+    this.router.navigate(['serve-transfer-cash'], { relativeTo: this.route });
+
+  }
+  serveTransferWallet(){
+    this.router.navigate(['serve-transfer-wallet'], { relativeTo: this.route });
 
   }
 
