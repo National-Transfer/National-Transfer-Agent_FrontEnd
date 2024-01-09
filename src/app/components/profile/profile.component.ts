@@ -25,10 +25,6 @@ export class ProfileComponent implements OnInit{
 
   agent !: Agent;
 
-  // ngOnInit(): void {
-  //   this.loadAgent();
-  // }
-
   claims: Claim[] = [];
 
   constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth) {
@@ -39,17 +35,13 @@ export class ProfileComponent implements OnInit{
     const userClaims = await this.oktaAuth.getUser();
     this.claims = Object.entries(userClaims).map(entry => ({ claim: entry[0], value: entry[1] }));
 
-    console.log(this.claims);
+    this.agentService.getAgentById$(this.claims[10].value as string).subscribe(
+      (agent) => {
+        this.agent = agent;
+      },
+      (error) => console.error('Error getting agent agent: ', error)
+    );
     
   }
 
-  private loadAgent() {
-    // this.agentService.getAgentById$(this.agent.id).subscribe(
-    //   (agent) => {
-    //     this.agent = agent;
-    //   },
-    //   (error) => console.error('Error getting agent agent: ', error)
-    // );
-
-  }
 }

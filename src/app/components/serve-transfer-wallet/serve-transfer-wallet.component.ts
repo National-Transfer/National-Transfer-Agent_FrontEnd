@@ -24,13 +24,23 @@ export class ServeTransferWalletComponent {
   private transferService = inject(TransferService);
 
   private benificiaryService = inject(BenificiaryService);
-  // private otpService: OtpService = inject(OtpService)
 
   transferToServe !: Transfer;
 
   benificiary !: Benificiary;
   addedClient !: ClientResponse;
   otpMsg !: string;
+
+  emptyTransfer : Transfer = {
+    transferAmount: 0,
+    transferType: '',
+    transferReason: '',
+    commissionType: '',
+    agentId: '',
+    clientId: '',
+    recipientId: '',
+    transferNotification: false
+  }
 
 
   ngOnInit(): void {
@@ -94,7 +104,6 @@ export class ServeTransferWalletComponent {
   }
 
   checkTransferToServe(reference: NgForm) {
-
     this.transferService.checkTransferToServe$(reference.value.reference).subscribe(response => {
       if (response) {
         this.transferToServe = response;

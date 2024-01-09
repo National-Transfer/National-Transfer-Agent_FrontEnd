@@ -18,7 +18,7 @@ export class AgentService {
   
   private http: HttpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = environment.redirectUri +'/kyc-service/api/v1/clients';
+  private readonly apiUrl: string = environment.redirectUri +'/agency-service/api/v1/agents';
 
   constructor() { }
 

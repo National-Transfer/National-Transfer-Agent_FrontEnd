@@ -7,8 +7,7 @@
                     <img src="../../../assets/agent1.png" alt="Agent">
                     </div>
                     <div class="card-info">
-                        <h5 class="user-name">Admin agent name</h5>
-                        <h6 class="user-email text-center">agent email</h6>
+                        <h5 class="user-name">Agent {{agent?.firstName}}</h5>
                     </div>
                     
                 </div>
@@ -24,25 +23,25 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="fullName">First Name</label>
-                                <p>first name</p>
+                                <p>{{agent?.firstName}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="fullName">Last Name</label>
-                                <p>last name</p>
+                                <p>{{agent?.lastName}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <p>0616061968</p>
+                                <p>{{agent?.phoneNumber}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="eMail">Email</label>
-                                <p>email</p>
+                                <p>{{agent?.email}}</p>
                             </div>
                         </div>
                     </div>
@@ -53,25 +52,25 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="Street">Name</label>
-                                <p>salespoint</p>
+                                <p>{{agent?.salesPoint?.name}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <p>address</p>
+                                <p>{{agent?.salesPoint?.address}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="createdAt">Created At</label>
-                                <p>date de creation</p>
+                                <p>{{agent?.salesPoint?.createdAt}}</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="zIp">Daily Transfer Limit</label>
-                                <p>129999 DH</p>
+                                <p>{{agent?.salesPoint?.dailyTransferLimit}}</p>
                             </div>
                         </div>
                     </div>

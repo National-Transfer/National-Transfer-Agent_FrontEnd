@@ -4,56 +4,60 @@
         <div class="container  nav-container">
             <ul class="nav page-navigation">
                 <li class="nav-item">
-                    <a  (click)="home()"  class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faHouse"></fa-icon>
-                        <span class="menu-title" >Home</span>
+                    <a (click)="home()" class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faHouse"></fa-icon>
+                        <span class="menu-title">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a  (click)="clients()" class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faUserGroup"></fa-icon>
-                        <span class="menu-title" >Clients</span>
+                    <a (click)="clients()" class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faUserGroup"></fa-icon>
+                        <span class="menu-title">Clients</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a (click)="prospects()" class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faUserGroup"></fa-icon>
-                        <span class="menu-title" >Prospects</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a (click)="sendMoney()" class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
-                        <span class="menu-title" >Issue Transfer</span>
+                        <fa-icon class="menu-icon" [icon]="faUserGroup"></fa-icon>
+                        <span class="menu-title">Prospects</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
-                        <span class="menu-title" >Serve Transfer</span>
+                        <fa-icon class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
+                        <span class="menu-title">Issue Transfer</span>
                     </a>
                     <div class="dropdown-content">
-                        <a (click)="serveTransferCash()">Cash</a>
+                        <a (click)="issueTransferCash()">By Cash</a>
+                        <a (click)="issueTransferWallet()">From wallet</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faMoneyBillTransfer"></fa-icon>
+                        <span class="menu-title">Serve Transfer</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a (click)="serveTransferCash()">By Cash</a>
                         <a (click)="serveTransferWallet()">On wallet</a>
-                      </div>
+                    </div>
 
                 </li>
-                <li class="nav-item"  >
-                    <a (click)="transfersRecents()" class="nav-link" >
-                        <fa-icon  class="menu-icon" [icon]="faLandmark"></fa-icon>
-                        <span class="menu-title" >Transfers</span>
-                    </a>
-                </li>
-                <li class="nav-item"  >
-                    <a (click)="profile()" class="nav-link" >
-                        <fa-icon  class="menu-icon" [icon]="faUser"></fa-icon>
-                        <span class="menu-title" >Profile</span>
+                <li class="nav-item">
+                    <a (click)="transfersRecents()" class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faLandmark"></fa-icon>
+                        <span class="menu-title">Transfers</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="logout()"  class="nav-link">
-                        <fa-icon  class="menu-icon" [icon]="faRightFromBracket"></fa-icon>
-                        <span class="menu-title" >Logout</span>
+                    <a (click)="profile()" class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faUser"></fa-icon>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="logout()" class="nav-link">
+                        <fa-icon class="menu-icon" [icon]="faRightFromBracket"></fa-icon>
+                        <span class="menu-title">Logout</span>
                     </a>
                 </li>
             </ul>

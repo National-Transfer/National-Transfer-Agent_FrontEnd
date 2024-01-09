@@ -6,5 +6,5 @@ export interface TransferAmountRequest{
     transferNotification : boolean;
     transferType : string;
     commissionType: string;
-    
+    transferReason : string
 }

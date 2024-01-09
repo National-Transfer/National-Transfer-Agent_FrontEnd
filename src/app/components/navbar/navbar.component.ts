@@ -44,7 +44,7 @@ export class NavbarComponent {
   }
 
   sendMoney() {
-    this.router.navigate(['send-money'], { relativeTo: this.route });
+    this.router.navigate(['issue-transfer'], { relativeTo: this.route });
   }
 
   profile() {
@@ -57,6 +57,15 @@ export class NavbarComponent {
   }
   serveTransferWallet(){
     this.router.navigate(['serve-transfer-wallet'], { relativeTo: this.route });
+
+  }
+  issueTransferCash(){
+    this.router.navigate(['issue-transfer-cash'], { relativeTo: this.route });
+
+  }
+
+  issueTransferWallet(){
+    this.router.navigate(['issue-transfer-wallet'], { relativeTo: this.route });
 
   }
 

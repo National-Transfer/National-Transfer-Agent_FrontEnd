@@ -5,9 +5,11 @@ import { ClientsComponent } from "./clients/clients.component";
 import { ProspectsComponent } from "./prospects/prospects.component";
 import { TransfersHistoriqueComponent } from "./transfers-historique/transfers-historique.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { EmissionTransferComponent } from "./emission-transfer/emission-transfer.component";
-import { ServeTransferComponent } from "./serve-transfer-cash/serve-transfer-cash.component";
 import { ServeTransferWalletComponent } from "./serve-transfer-wallet/serve-transfer-wallet.component";
+import { ServeTransferComponent } from "./serve-transfer-cash/serve-transfer-cash.component";
+import { IssueTransferComponent } from "./issue-transfer-cash/issue-transfer.component";
+import { IssueTransferWalletComponent } from "./issue-transfer-wallet/issue-transfer-wallet.component";
+
 
 
 
@@ -25,9 +27,6 @@ export const APP_ROUTES: Route[] = [
                 path:'prospects', component: ProspectsComponent
             },
             {
-                path: 'send-money', component: EmissionTransferComponent
-            },
-            {
                 path: 'transfers-history', component: TransfersHistoriqueComponent
             },
             {
@@ -38,6 +37,12 @@ export const APP_ROUTES: Route[] = [
             },
             {
                 path : 'serve-transfer-wallet', component: ServeTransferWalletComponent
+            },
+            {
+                path: 'issue-transfer-cash', component: IssueTransferComponent
+            },
+            {
+                path: 'issue-transfer-wallet' , component: IssueTransferWalletComponent
             }
         ]
     }

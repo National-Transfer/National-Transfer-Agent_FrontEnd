@@ -1,0 +1,420 @@
+<div class="container">
+    <div id="multi-step-form-container">
+        <!-- Form Steps / Progress Bar -->
+        <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+            <!-- Step 1 -->
+            <li class="form-stepper-active text-center form-stepper-list" step="1">
+                <a class="mx-2">
+                    <span class="form-stepper-circle">
+                        <span>1</span>
+                    </span>
+                    <div class="label">Transfer Type</div>
+                </a>
+            </li>
+            <!-- Step 2 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>2</span>
+                    </span>
+                    <div class="label text-muted">Client Informations</div>
+                </a>
+            </li>
+            <!-- Step 3 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>3</span>
+                    </span>
+                    <div class="label text-muted"> Client Recap</div>
+                </a>
+            </li>
+            <!-- Step 4 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="4">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>4</span>
+                    </span>
+                    <div class="label text-muted"> Beneficiary Informations</div>
+                </a>
+            </li>
+            <!-- Step 5 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="5">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>5</span>
+                    </span>
+                    <div class="label text-muted"> Beneficiary Recap </div>
+                </a>
+            </li>
+            <!-- Step 6 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="6">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>6</span>
+                    </span>
+                    <div class="label text-muted"> Transfer Informations</div>
+                </a>
+            </li>
+            <!-- Step 7 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="7">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>7</span>
+                    </span>
+                    <div class="label text-muted"> Transfer Recap</div>
+                </a>
+            </li>
+            <!-- Step 8 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="8">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>8</span>
+                    </span>
+                    <div class="label text-muted">OTP Verification</div>
+                </a>
+            </li>
+            <!-- Step 9 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="9">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>9</span>
+                    </span>
+                    <div class="label text-muted"> Final Recap</div>
+                </a>
+            </li>
+        </ul>
+
+
+        <!-- Step Wise Form Content -->
+        <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+            <!-- Step 1 Content -->
+            <section id="step-1" class="form-step">
+                <h4 class="mb-2 section-title"><strong> Choice your Transfer Type</strong></h4>
+                <!-- Step 1 input fields -->
+                <form #reference="ngForm">
+                    <div class="mt-3">
+                        <form class="form">
+                            <label class="">Please Select your Tranfer Type :</label><br>
+                            <div class="dropdown">
+                                <select name="benef" class="dropdown-btn">
+                                    <option class="dropdown-content" value="">From Account</option>
+                                    <option class="dropdown-content" value="">Espece</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn button btn-navigate-form-step" type="button" step_number="2"
+                                    [disabled]="reference.invalid"
+                                    (click)="checkTransferToServe(reference)">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </section>
+            <!-- Step 2 Content -->
+            <section id="step-2" class="form-step">
+                <h4 class="mb-2 section-title"><strong> Insert Client Informations</strong></h4>
+                <!-- Step 2 input fields -->
+                <form #reference="ngForm">
+                    <div class="mt-3">
+                        <form class="form">
+                            <div class="form-group mb-3">
+                                <label class="">Name : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Identity Type : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Identity Number : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Phone Number : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Email : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mt-3">
+                        <button class="button btn-navigate-form-step m" type="button" step_number="1">Prev</button>
+                        <button class="button btn-navigate-form-step" type="button" step_number="3"
+                            [disabled]='transferToServe'>Next</button>
+                    </div>
+
+                </form>
+            </section>
+            <!-- Step 3 Content -->
+            <section id="step-3" class="form-step">
+                <h4 class="mb-2 section-title"><strong> Client Recap</strong></h4>
+                <!-- Step 3 input fields -->
+                <div class="mt-3">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group mb-3">
+                                <label for="fullName"> Name : &nbsp;&nbsp;</label>
+                                <label><span class="info">Name</span></label>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group mb-3">
+                                <label for="fullName">Identity Type : &nbsp;&nbsp;</label>
+                                <label><span class="info">Identity Type</span></label>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group mb-3">
+                                <label for="fullName">Identity Number : &nbsp;&nbsp;</label>
+                                <label><span class="info">Identity Number</span></label>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group mb-3">
+                                <label for="phone">Phone Number : &nbsp;&nbsp;</label>
+                                <label><span class="info">phone</span></label>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group mb-3">
+                                <label for="fullName">Email : &nbsp;&nbsp;</label>
+                                <label><span class="info">Email</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step m" type="button" step_number="2">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="4"
+                        [disabled]='transferToServe'>Next</button>
+                </div>
+
+            </section>
+            <!-- Step 4 Content -->
+            <section id="step-4" class="form-step">
+                <h4 class="mb-2 section-title"><strong> Add Beneficiary</strong></h4>
+                <!-- Step 4 input fields -->
+                <form #reference="ngForm">
+                    <div class="mt-3">
+                        <form class="form">
+                            <div class="form-group mb-3">
+                                <label class="">First Name : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Last Name : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="">Phone Number : &nbsp;&nbsp;</label>
+                                <input class="form-input" type="text" />
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step m" type="button" step_number="3">Prev</button>
+                            <button class="button btn-navigate-form-step" type="button" step_number="5"
+                                [disabled]='transferToServe'>Next</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+            <!-- Step 5 Content, default hidden on page load. -->
+            <section id="step-5" class="form-step d-none">
+                <div class="mt-3">
+                    <div class="h-100">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h4 class="mb-2 section-title"><strong>Beneficiary Recap</strong></h4>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group mb-3">
+                                        <label for="fullName">First Name : &nbsp;&nbsp;</label>
+                                        <label><span class="info">firstName</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group mb-3">
+                                        <label for="fullName">Last Name : &nbsp;&nbsp;</label>
+                                        <label><span class="info">lastName</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group mb-3">
+                                        <label for="phone">Phone Number : &nbsp;&nbsp;</label>
+                                        <label><span class="info">phone</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step m" type="button" step_number="4">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="6"
+                        [disabled]='transferToServe'>Next</button>
+                </div>
+
+            </section>
+            <!-- Step 6 Content, default hidden on page load. -->
+            <section id="step-6" class="form-step d-none">
+                <h4 class="mb-2 section-title"><strong>Transfer Informations</strong></h4>
+                <!-- Step 6 input fields -->
+                <div class="mt-3">
+                    <form #reference="ngForm">
+                        <div class="mt-3">
+                            <form class="form">
+                                <div class="form-group mb-3">
+                                    <label class="">Please enter the transfer amount : &nbsp;&nbsp;</label>
+                                    <input class="form-input" type="number" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Please enter the transfer Reason : &nbsp;&nbsp;</label>
+                                    <input class="form-input" type="text" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Comission:&nbsp;&nbsp; </label>
+                                    <label class=""><span class="info">5%</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <div class="checkbox-wrapper-2">
+                                        <label><input type="checkbox" class="sc-gJwTLC ikxBAC">
+                                            &nbsp;&nbsp;You want to use our notification service</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="7">Next</button>
+                </div>
+            </section>
+
+            <!-- Step 7 Content, default hidden on page load. -->
+
+            <section id="step-7" class="form-step d-none">
+                <h4 class="mb-2 section-title"><strong>Transfer Recap </strong> </h4>
+                <!-- Step 7 input fields -->
+                <div class="mt-3">
+                    <form>
+                        <div class="form-group mb-3">
+                            <label class="">Transfer Reason: &nbsp;&nbsp;</label>
+                            <label class=""><span class="info">Reason</span></label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="">Transfer Amount: &nbsp;&nbsp;</label>
+                            <label class=""> <span class="info">500DH</span> </label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="">Agency Comission : &nbsp;&nbsp;</label>
+                            <label class=""> <span class="info">50DH</span> </label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="">Notification service Comission: &nbsp;&nbsp;</label>
+                            <label class=""> <span class="info">10DH</span> </label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="">Total: &nbsp;&nbsp;</label>
+                            <label class=""> <span class="info">560DH</span> </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
+                </div>
+            </section>
+
+            <!-- Step 8 Content, default hidden on page load. -->
+
+            <section id="step-8" class="form-step d-none">
+                <h4 class="mb-2 section-title"><strong>Verification Step </strong> </h4>
+                <!-- Step 8 input fields -->
+                <div class="mt-3">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-7 mx-auto my-auto">
+                            <div class="card">
+                                <div class="card-body px-lg-5 py-lg-5 text-center">
+                                    <img src="../../../assets/images/msg.png"
+                                        class="rounded-circle avatar-lg img-thumbnail mb-4" alt="profile-image">
+                                    <h2 class="text">Verfication code</h2>
+                                    <p class="mb-4">Please enter the 5-digits code you recieved.</p>
+                                    <form #form="ngForm">
+                                        <ng-otp-input [config]="{length:5}"></ng-otp-input>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-sm pay-button my-4">Verify</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="9">Next</button>
+                </div>
+            </section>
+
+            <!-- Step 9 Content, default hidden on page load. -->
+
+            <section id="step-9" class="form-step d-none">
+                <h4 class="mb-2 section-title"><strong>Final Recap</strong> </h4>
+                <!-- Step 9 input fields -->
+                <div class="mt-3">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label class="">Beneficiary First Name : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Beneficiary Last Name : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Beneficiary Phone Number : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Transfer Reason : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Amount to Transfer : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label class="">Transfered At : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Transfered By : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="">Address : &nbsp;&nbsp;</label>
+                                    <label class=""><span class="info">firstName</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="8">Prev</button>
+                    <button class="button submit-btn" type="submit">Save</button>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>
