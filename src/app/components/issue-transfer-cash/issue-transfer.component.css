@@ -1,20 +1,3 @@
-/* .container {
-    min-height: auto;
-    grid-column-gap: 2rem;
-    grid-template-columns: 1fr;
-    grid-auto-flow: row;
-    grid-row-gap: 4rem;
-    background-color: white;
-    border-radius: 5px;
-    grid-template-rows: auto;
-    grid-auto-columns: 1fr;
-    align-items: center;
-    padding: 3rem;
-    display: grid;
-    position: relative;
-    box-shadow: 11px 11px 25px 10px rgba(144,177,180,.4);
-    margin: 30px auto;
-} */
 h1 {
     text-align: center;
 }
@@ -33,6 +16,14 @@ h2 {
 }
 .pl-0 {
     padding-left: 0;
+}
+.button {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid #4361ee;
+    background-color: #4361ee;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
 .submit-btn {
     border: 1px solid #0e9594;
@@ -165,72 +156,71 @@ ul.form-stepper li a .form-stepper-circle {
 }
 
 .form-input {
-    height: 35px;
+    height: 38px;
     width: 350px;
     background-color: transparent;
-    border: 1px solid #145257;
-    font-size: 16px;
+    border: 1px solid #344767;
+    font-size: 15px;
     /* font-style: italic; */
     /* margin-bottom: 1rem; */
     /* border-left: 3px solid #344767; */
-    border-radius: 0.5em;
+    border-radius: 0;
     padding: 10px 30px;
     transition-duration: 500ms;
     margin-left: 0;
     margin-right: 0;
-    color: black;
-}
-
-.form-input:focus {
-    border-left: 3px solid #145257;
-    box-shadow: none;
-}
-
-.section-title{
-    color: #008995;
-    margin-bottom: 40px;
-}
-
-.form {
-    margin: 20px;
-    /* display: flex; */
-}
-.form-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.5;
-    margin: 20px;
-    text-align: center;
-}
-.dropdown {
-    max-width: 40em;
-    margin: 20px auto;
-    position: relative;
-    width: 100%;
   }
-.dropdown-btn {
-    /* background: #145257; */
-    font-size: 18px;
-    width: 100%;
-    border: none;
-    color: #145257;
+  
+  .form-input:focus {
+    border-left: 3px solid #344767;
+    box-shadow: none;
+  }
+
+  .section-title{
+    color: #008995;
+}
+
+/* modal */
+.card {
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+  }
+  .card {
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7em 0.5em;
-    border-radius: 0.5em;
-    cursor: pointer;
-    border: 2px solid #145257;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
-}
-.dropdown-content {
-    list-style: none;
-    position: absolute;
-    top: 3.2em;
-    width: 100%;
-}
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+  }
+
+  .img-thumbnail {
+    padding: .25rem;
+    background-color: #ecf2f5;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+  }
+  .avatar-lg {
+    height: 150px;
+    width: 150px;
+  }
+
 .button {
+    outline: none;
+    width: 150px;
+    background: #3d4b5f;
+    margin-right: 2rem;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+  .button {
     align-items: center;
     background-color: #FFFFFF;
     border: 1px solid #145257;
@@ -258,16 +248,6 @@ ul.form-stepper li a .form-stepper-circle {
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     color: #F0F0F1;
     background-color: #145257;
-}
-.labelInfo {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: .7;
-    margin: 10px;
-    text-align: left;
-}
-.form-group {
-    margin: 15px auto;
 }
 .checkbox-wrapper-2 .ikxBAC {
     appearance: none;
@@ -323,61 +303,74 @@ outline: 0;
 .checkbox-wrapper-2 .ikxBAC:checked:hover {
 background-color: #145257;
 }
-.card {
-    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+.table-hedaer {
+    background-color: #145257 !important;
 }
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: 1rem;
-}
-.text{
-    color:#145257;
-}
-.img-thumbnail {
-    padding: .25rem;
-    background-color: #ecf2f5;
-    border: 1px solid #dee2e6;
-    border-radius: .25rem;
-    max-width: 100%;
-    height: auto;
-}
-.avatar-lg {
-    height: 150px;
-    width: 150px;
-}
-button.pay-button:hover {
-    color: #145257;
-    text-shadow: none;
+.center {
+    margin-bottom: 60px;
+    color: #005259;
 }
 
-button.pay-button,
-button.pay-button:visited {
-    width: 130px;
-    margin: 15px;
-    padding: 14px 15px;
-    color: #000000;
-    font-size: 14px;
-    border-radius: 10px;
+.table {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,0.1);
+    padding: 15px;
+    margin: 6px 0;
+}
+.table-agents{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.26);
+    margin-top: 30px;
+}
+
+.item {
+    max-width: 50%;
     font-weight: bold;
+    font-size: 10pt;
+}
+#addBenefModal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.form {
+    margin: 30px 50px 0;
+}
+.button-secondary {
+    z-index: 999;
+    border: 0.125rem solid #008995;
+    color: #008995 ;
     text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    font-family: Inter,sans-serif;
+    font-weight: 600;
+    transition: opacity .35s;
+    position: relative;
+}
+.w-button {
+    line-height: inherit;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    max-width: 180px;
+    margin: 10px;
 }
-button.pay-button {
-    border: 2px solid #145257;
+.btn:hover {
+    border: 0.125rem solid #005259 !important;
+    color: white;
+    background-color: #005259 !important;
 }
-label {
-    font-size: 21px;
-}
-.info {
-    font-weight: 500;
+.form-control {
+    border: 0.125rem solid #bdbfbf;
+    height: 45px;
+    max-width: 350px;
+    margin: 5px;
 }

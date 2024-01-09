@@ -15,6 +15,7 @@ import { BehaviorSubject } from 'rxjs';
 import { IssueTransferRequest } from '../../interfaces/issueTransferService';
 import { ValidateTransferRequest } from '../../interfaces/validateTransferRequest';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 interface Claim {
@@ -31,6 +32,9 @@ interface Claim {
   styleUrl: './issue-transfer-wallet.component.css'
 })
 export class IssueTransferWalletComponent implements OnInit {
+
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   private clientService: ClientService = inject(ClientService);
 
@@ -215,5 +219,9 @@ export class IssueTransferWalletComponent implements OnInit {
     container?.appendChild(button);
     button.click();
   
+  }
+
+  home() {
+    this.router.navigate([''], { relativeTo: this.route });
   }
 }
