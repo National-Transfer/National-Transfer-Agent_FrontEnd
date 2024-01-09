@@ -5,8 +5,8 @@ import { ClientsComponent } from "./clients/clients.component";
 import { ProspectsComponent } from "./prospects/prospects.component";
 import { TransfersHistoriqueComponent } from "./transfers-historique/transfers-historique.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { EmissionTransferComponent } from "./emission-transfer/emission-transfer.component";
 import { ServeTransferComponent } from "./serve-transfer/serve-transfer.component";
+import { IssueTransferComponent } from "./issue-transfer/issue-transfer.component";
 
 
 
@@ -24,9 +24,6 @@ export const APP_ROUTES: Route[] = [
                 path:'prospects', component: ProspectsComponent
             },
             {
-                path: 'send-money', component: EmissionTransferComponent
-            },
-            {
                 path: 'transfers-history', component: TransfersHistoriqueComponent
             },
             {
@@ -34,6 +31,9 @@ export const APP_ROUTES: Route[] = [
             },
             {
                 path : 'serve-transfer', component: ServeTransferComponent
+            },
+            {
+                path: 'issue-transfer', component: IssueTransferComponent
             }
         ]
     }
